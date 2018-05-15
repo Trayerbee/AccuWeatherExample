@@ -44,7 +44,7 @@ class CitySearchViewController: UIViewController {
             }
             .disposed(by: bag)
         
-        tableView.rx.modelSelected(CityResponse.City.self).subscribe(
+        tableView.rx.modelSelected(City.self).subscribe(
             onNext: { (city) in
             self.performSegue(withIdentifier: "city", sender: city)
         })
@@ -53,7 +53,7 @@ class CitySearchViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let forecastVC = segue.destination as! CityForecastViewController
-        forecastVC.city = sender as? CityResponse.City
+        forecastVC.city = sender as? City
     }
     
     override func didReceiveMemoryWarning() {

@@ -25,6 +25,7 @@ extension Core {
             let request = apiRequest.request(with: self.baseURL)
             let task = URLSession.shared.dataTask(with: request) { (optionalData, response, error) in
                 if let error = error {
+                    print(error)
                     observer.onError(error)
                 }
                 else {
@@ -32,6 +33,7 @@ extension Core {
                     print(response ?? "No response")
                     do {
                         guard let data = optionalData else {
+                            print("Failed to get data")
                             throw "Empty data"
                         }
                         let json = try JSON(data: data)
@@ -60,5 +62,3 @@ extension Core {
         return Core(base: url)
     }
 }
-
-extension String: Error {}

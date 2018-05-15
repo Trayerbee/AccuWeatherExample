@@ -12,54 +12,39 @@ import RxSwift
 import Freddy
 
 struct CityResponse {
-    public struct City {
-        public let key: String
-        public let localName: String
-        public let country: Country
-        public let area: Area
-    }
-    
-    public struct Area {
-        public let identifier: String
-        public let localName: String
-    }
-    
-    public struct Country {
-        public let identifier: String
-        public let localName: String
-    }
-    
     public let cities: [City]
 }
 
-extension CityResponse.City: JSONDecodable {
+extension City: JSONDecodable {
     public init(json: JSON) throws {
         key = try json.getString(at: "Key")
         localName = try json.getString(at: "LocalizedName")
-        country = try json.decode(at: "Country", type: CityResponse.Country.self)
-        area = try json.decode(at: "AdministrativeArea", type: CityResponse.Area.self)
+        country = try json.decode(at: "Country", type: Country.self)
+        area = try json.decode(at: "AdministrativeArea", type: Area.self)
     }
 }
 
 extension CityResponse: JSONDecodable {
     public init(json: JSON) throws {
-        let optionalCities = try json.decodedArray(alongPath: .nullBecomesNil, type: CityResponse.City.self)
+        let optionalCities = try json.decodedArray(alongPath: .nullBecomesNil, type: City.self)
         guard let cities = optionalCities else {
             throw "Unable to parse regions response"
         }
         self.cities = cities
     }
 }
-extension CityResponse.Area: JSONDecodable {
+extension Area: JSONDecodable {
     public init(json: JSON) throws {
         identifier = try json.getString(at: "ID")
         localName = try json.getString(at: "LocalizedName")
+        englishName = nil
     }
 }
 
-extension CityResponse.Country: JSONDecodable {
+extension Country: JSONDecodable {
     public init(json: JSON) throws {
         identifier = try json.getString(at: "ID")
         localName = try json.getString(at: "LocalizedName")
+        englishName = nil
     }
 }

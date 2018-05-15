@@ -36,9 +36,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQJ-dS-GpK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQJ-dS-GpK">
                                 <rect key="frame" x="16" y="64" width="343" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="gTk-zV-If8">
+                                    <rect key="frame" x="0.0" y="72" width="343" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="1MT-9K-Vof" detailTextLabel="4U6-9a-WfU" style="IBUITableViewCellStyleSubtitle" id="HjQ-I1-hQb">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
@@ -104,23 +109,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cool from today to tomorrow" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipu-Xt-i0f">
-                                <rect key="frame" x="24" y="88" width="327" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipu-Xt-i0f">
+                                <rect key="frame" x="24" y="88" width="327" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wEh-Ff-zCN">
-                                <rect key="frame" x="24" y="132" width="327" height="184"/>
+                                <rect key="frame" x="24" y="111.5" width="327" height="184"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forecast for Monday 1st of May 2018 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV9-3H-qsY">
-                                        <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV9-3H-qsY">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature range from 9999 to 9999" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sj-nf-cmy">
-                                        <rect key="frame" x="0.0" y="48" width="298" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sj-nf-cmy">
+                                        <rect key="frame" x="0.0" y="48" width="0.0" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="UDm-ES-sNU"/>
                                         </constraints>
@@ -128,33 +133,40 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day condition partially sunny" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFC-Nt-M58">
-                                        <rect key="frame" x="0.0" y="96" width="220" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFC-Nt-M58">
+                                        <rect key="frame" x="0.0" y="96" width="0.0" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day condition partially sunny" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JR-T7-bzh">
-                                        <rect key="frame" x="0.0" y="144" width="220" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JR-T7-bzh">
+                                        <rect key="frame" x="0.0" y="144" width="0.0" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wv4-7R-18z">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.94509803920000002" green="0.60784313729999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ipu-Xt-i0f" secondAttribute="trailing" constant="24" id="4iH-5G-Dv9"/>
                             <constraint firstItem="wEh-Ff-zCN" firstAttribute="top" secondItem="Ipu-Xt-i0f" secondAttribute="bottom" constant="24" id="4nd-3V-9VJ"/>
                             <constraint firstItem="Ipu-Xt-i0f" firstAttribute="top" secondItem="1Qv-YB-kab" secondAttribute="top" constant="24" id="Ocw-1m-biZ"/>
+                            <constraint firstItem="wv4-7R-18z" firstAttribute="centerX" secondItem="vRo-oU-rMB" secondAttribute="centerX" id="V3g-NW-Qz0"/>
                             <constraint firstItem="Ipu-Xt-i0f" firstAttribute="leading" secondItem="1Qv-YB-kab" secondAttribute="leading" constant="24" id="ahr-kL-3u6"/>
                             <constraint firstItem="wEh-Ff-zCN" firstAttribute="leading" secondItem="1Qv-YB-kab" secondAttribute="leading" constant="24" id="cnT-nR-Keq"/>
                             <constraint firstItem="1Qv-YB-kab" firstAttribute="trailing" secondItem="wEh-Ff-zCN" secondAttribute="trailing" constant="24" id="oom-RW-Oe0"/>
+                            <constraint firstItem="wv4-7R-18z" firstAttribute="centerY" secondItem="vRo-oU-rMB" secondAttribute="centerY" id="rzF-Gg-UN3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Qv-YB-kab"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="wv4-7R-18z" id="Lwy-O9-s8B"/>
                         <outlet property="dateLabel" destination="EV9-3H-qsY" id="wYi-OR-8Yi"/>
                         <outlet property="dayConditionLabel" destination="mFC-Nt-M58" id="YdB-WG-dVY"/>
                         <outlet property="generalCondition" destination="Ipu-Xt-i0f" id="zKD-Oi-Obt"/>
