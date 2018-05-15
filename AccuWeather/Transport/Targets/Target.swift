@@ -20,7 +20,7 @@ extension Target {
             fatalError("Unable to create URL components")
         }
         
-        let parametersWithKey = parameters.merging(["apikey": "KK8KdJr6bG89ghPOPd1hasN5u6XwEE3U", "locale": "en-US"], uniquingKeysWith: { $1 })
+        let parametersWithKey = parameters.merging(["apikey": "nHLlFYxp24NfxkNQ2yAfXkLZjQKVM9QY", "locale": "en-US"], uniquingKeysWith: { $1 })
         
         components.queryItems = parametersWithKey.map {
             URLQueryItem(name: String($0), value: String($1))
