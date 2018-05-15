@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CitySearchViewController: UIViewController {
+class CitySearchViewControllerOld: UIViewController {
 
     @IBOutlet weak var searchText: UITextField!
     
