@@ -45,7 +45,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="1MT-9K-Vof" detailTextLabel="4U6-9a-WfU" style="IBUITableViewCellStyleSubtitle" id="HjQ-I1-hQb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="1MT-9K-Vof" detailTextLabel="4U6-9a-WfU" style="IBUITableViewCellStyleSubtitle" id="HjQ-I1-hQb">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HjQ-I1-hQb" id="3Ig-mt-EYD">
@@ -90,7 +90,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" image="LocationIcon" style="plain" id="7KX-Jw-eVh">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="LocationIcon" style="plain" id="7KX-Jw-eVh">
                             <connections>
                                 <segue destination="G69-bZ-Xd9" kind="show" id="BME-d2-XKp"/>
                             </connections>
@@ -266,6 +266,6 @@
         <image name="LocationIcon" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bvQ-aO-aUl"/>
+        <segue reference="rmq-5o-ctt"/>
     </inferredMetricsTieBreakers>
 </document>
