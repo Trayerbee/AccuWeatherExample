@@ -8,12 +8,26 @@
 
 import Foundation
 
-class OneDayForecast: Target {
-    var path = "/forecasts/v1/daily/1day"
+class DayForecast: Target {
+    var path = "/forecasts/v1/daily"
     var parameters: [String : String]
     
     init(endPoint: String, params: [String: String]) {
         path = "\(path)/\(endPoint)"
         parameters = params
+    }
+}
+
+enum DaysNumber {
+    case oneDay
+    case fiveDays
+    
+    public var endpoint: String {
+        switch self {
+        case .oneDay:
+            return "1day"
+        case .fiveDays:
+            return "5day"
+        }
     }
 }

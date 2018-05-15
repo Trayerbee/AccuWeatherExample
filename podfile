@@ -9,10 +9,12 @@ target 'AccuWeather' do
     pod 'RxCocoa',    '~> 4.0'
     pod 'RxAlamofire'
     pod 'RxOptional'
+    pod 'RxSwiftExt'
 end
 
 target 'AccuWeatherTests' do
     pod 'RxBlocking', '~> 4.0'
     pod 'RxTest',     '~> 4.0'
+    pod 'Nimble', '~> 6.0.0'
 end
 
