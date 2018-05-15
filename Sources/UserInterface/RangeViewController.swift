@@ -17,15 +17,10 @@ class RangeViewController: UIViewController {
     
     public var location: KeyedLocation?
     
-    
     let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let location = location else {
-            fatalError("No location set")
-        }
         
         oneDay.rx
             .tap
@@ -33,9 +28,7 @@ class RangeViewController: UIViewController {
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [unowned self]
                _ in
-                let forecastTarget = Observable.just(OneDayForecast(endPoint: location.key, params: [:]))
-
-                self.performSegue(withIdentifier: "forecast", sender: forecastTarget)
+                self.performSegue(withIdentifier: "forecast", sender: DaysNumber.oneDay)
             }).disposed(by: bag)
         
         fiveDays.rx
@@ -44,9 +37,7 @@ class RangeViewController: UIViewController {
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [unowned self]
                 _ in
-                let forecastTarget = Observable.just(FiveDayForecast(endPoint: location.key, params: [:]))
-                
-                self.performSegue(withIdentifier: "forecast", sender: forecastTarget)
+                self.performSegue(withIdentifier: "forecast", sender: DaysNumber.fiveDays)
             }).disposed(by: bag)
         // Do any additional setup after loading the view.
     }
@@ -56,12 +47,12 @@ class RangeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cityVC = segue.destination as! CityForecastViewController
-        cityVC.forecast = sender as? Observable<Target>
+        cityVC.location = location
+        cityVC.numberOfDays = sender as? DaysNumber
     }
 }

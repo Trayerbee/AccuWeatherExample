@@ -13,7 +13,8 @@ import RxCocoa
 
 class CityForecastViewController: UIViewController {
 
-    public var forecast: Observable<Target>?
+    public var location: KeyedLocation?
+    public var numberOfDays: DaysNumber?
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -29,14 +30,13 @@ class CityForecastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let forecast = forecast else {
+        guard let location = location else {
             fatalError("No city set")
         }
         
         title = "Forecast"
         
-        
-        forecast
+        Observable.just(DayForecast(endPoint: "\(numberOfDays?.endpoint ?? "1day")/\(location.key)", params: [:]))
             .flatMap{ [unowned self]
                 (request) -> Observable<ForecastResponse> in
                 return self.core.send(apiRequest: request)
@@ -68,6 +68,5 @@ class CityForecastViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
 }
