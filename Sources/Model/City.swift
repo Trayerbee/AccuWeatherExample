@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ilyas-Karshigabekov. All rights reserved.
 //
 
-public struct City {
+public struct City: KeyedLocation {
     public let key: String
     public let localName: String
     public let country: Country

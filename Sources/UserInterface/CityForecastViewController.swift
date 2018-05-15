@@ -13,7 +13,7 @@ import RxCocoa
 
 class CityForecastViewController: UIViewController {
 
-    public var city: City?
+    public var forecast: Observable<Target>?
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -24,25 +24,23 @@ class CityForecastViewController: UIViewController {
     
     let bag = DisposeBag()
 
+    let core = try! Core.defaultNetworkCore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let core = try! Core.defaultNetworkCore()
-
-        
-        
-        guard let city = city else {
+        guard let forecast = forecast else {
             fatalError("No city set")
         }
         
-        let forecastRequest = OneDayForecast(endPoint:city.key, params: [:])
+        title = "Forecast"
         
-        title = city.localName
         
-        _ = Observable.just(forecastRequest)
-            .flatMap {
+        forecast
+            .flatMap{ [unowned self]
                 (request) -> Observable<ForecastResponse> in
-                return core.send(apiRequest: request)
+                return self.core.send(apiRequest: request)
+
             }
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: {
@@ -58,7 +56,7 @@ class CityForecastViewController: UIViewController {
                 self.dayConditionLabel.text = "Day condition \(forecast.dayCondition)"
                 self.nightConditionLabel.text = "Night condition \(forecast.nightCondition)"
                 self.generalCondition.text = response.headline
-
+                
             }, onError: {
                 print($0)
             })

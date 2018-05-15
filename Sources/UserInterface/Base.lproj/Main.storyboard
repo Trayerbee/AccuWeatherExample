@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8bi-Fl-bfW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,28 +28,28 @@
             </objects>
             <point key="canvasLocation" x="-1052" y="1393"/>
         </scene>
-        <!--City Search View Controller Old-->
+        <!--City Search View Controller-->
         <scene sceneID="n2l-yf-Svg">
             <objects>
-                <viewController id="doh-oL-IQA" customClass="CitySearchViewControllerOld" customModule="AccuWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="doh-oL-IQA" customClass="CitySearchViewController" customModule="AccuWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tmu-Xc-Eln">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQJ-dS-GpK">
-                                <rect key="frame" x="20" y="64" width="560" height="516"/>
+                                <rect key="frame" x="16" y="64" width="343" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="gTk-zV-If8">
-                                    <rect key="frame" x="0.0" y="72" width="560" height="44"/>
+                                    <rect key="frame" x="0.0" y="72" width="343" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="1MT-9K-Vof" detailTextLabel="4U6-9a-WfU" style="IBUITableViewCellStyleSubtitle" id="HjQ-I1-hQb">
-                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="1MT-9K-Vof" detailTextLabel="4U6-9a-WfU" style="IBUITableViewCellStyleSubtitle" id="HjQ-I1-hQb">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HjQ-I1-hQb" id="3Ig-mt-EYD">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1MT-9K-Vof">
@@ -86,33 +90,78 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <barButtonItem key="rightBarButtonItem" image="LocationIcon" style="plain" id="7KX-Jw-eVh">
+                            <connections>
+                                <segue destination="G69-bZ-Xd9" kind="show" id="BME-d2-XKp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchText" destination="24l-lM-HUL" id="1st-T9-GW2"/>
                         <outlet property="tableView" destination="QQJ-dS-GpK" id="lrh-0H-CEW"/>
-                        <segue destination="oUR-ev-mGj" kind="show" identifier="city" id="KIZ-z1-qBb"/>
+                        <segue destination="AFF-uF-c83" kind="show" identifier="forecast" id="rmq-5o-ctt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ff-yS-0iS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="573.60000000000002" y="1392.953523238381"/>
+            <point key="canvasLocation" x="450" y="1393"/>
+        </scene>
+        <!--Range View Controller-->
+        <scene sceneID="aq6-J5-0la">
+            <objects>
+                <viewController id="AFF-uF-c83" customClass="RangeViewController" customModule="AccuWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SY1-0K-3rl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-St-W65">
+                                <rect key="frame" x="24" y="299" width="327" height="68"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EV9-y6-lxJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="30"/>
+                                        <state key="normal" title="One day forecast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2k-th-ASn">
+                                        <rect key="frame" x="0.0" y="38" width="327" height="30"/>
+                                        <state key="normal" title="Five day forecast"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uby-0O-hwX" firstAttribute="trailing" secondItem="h0E-St-W65" secondAttribute="trailing" constant="24" id="G26-tf-rE1"/>
+                            <constraint firstItem="h0E-St-W65" firstAttribute="leading" secondItem="Uby-0O-hwX" secondAttribute="leading" constant="24" id="eda-Op-Tgt"/>
+                            <constraint firstItem="h0E-St-W65" firstAttribute="centerY" secondItem="SY1-0K-3rl" secondAttribute="centerY" id="nwT-uc-4ht"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uby-0O-hwX"/>
+                    </view>
+                    <connections>
+                        <outlet property="fiveDays" destination="J2k-th-ASn" id="m89-0t-x19"/>
+                        <outlet property="oneDay" destination="EV9-y6-lxJ" id="joT-hg-WvE"/>
+                        <segue destination="oUR-ev-mGj" kind="show" identifier="forecast" id="FWc-yG-X27"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yoe-J4-SvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1438" y="1393"/>
         </scene>
         <!--City Forecast View Controller-->
         <scene sceneID="Ie6-dK-xOd">
             <objects>
                 <viewController id="oUR-ev-mGj" customClass="CityForecastViewController" customModule="AccuWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vRo-oU-rMB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipu-Xt-i0f">
-                                <rect key="frame" x="24" y="88" width="552" height="0.0"/>
+                                <rect key="frame" x="24" y="88" width="327" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wEh-Ff-zCN">
-                                <rect key="frame" x="24" y="111.5" width="552" height="184"/>
+                                <rect key="frame" x="24" y="111.5" width="327" height="184"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV9-3H-qsY">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
@@ -144,7 +193,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wv4-7R-18z">
-                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.94509803920000002" green="0.60784313729999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -172,7 +221,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54Q-pK-sR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680.8" y="1392.953523238381"/>
+            <point key="canvasLocation" x="2482" y="1393"/>
+        </scene>
+        <!--Choose location-->
+        <scene sceneID="teS-pf-7at">
+            <objects>
+                <viewController title="Choose location" id="G69-bZ-Xd9" customClass="MapViewController" customModule="AccuWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfR-Me-rbn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ViT-bn-TOB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ViT-bn-TOB" firstAttribute="leading" secondItem="tBY-XW-bR4" secondAttribute="leading" id="LY1-ky-iNF"/>
+                            <constraint firstItem="ViT-bn-TOB" firstAttribute="top" secondItem="tBY-XW-bR4" secondAttribute="top" id="WTz-NZ-kNU"/>
+                            <constraint firstItem="ViT-bn-TOB" firstAttribute="trailing" secondItem="tBY-XW-bR4" secondAttribute="trailing" id="Za4-qf-ByN"/>
+                            <constraint firstItem="ViT-bn-TOB" firstAttribute="bottom" secondItem="tBY-XW-bR4" secondAttribute="bottom" id="jon-6T-L2b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tBY-XW-bR4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select your location" id="cCk-nf-dR1">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="B1w-Kg-cNq">
+                            <connections>
+                                <action selector="selectedLocation:" destination="G69-bZ-Xd9" id="QIB-W5-NgJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="B1w-Kg-cNq" id="Ys2-ib-HlC"/>
+                        <outlet property="mapView" destination="ViT-bn-TOB" id="BBt-Xd-UZu"/>
+                        <segue destination="AFF-uF-c83" kind="show" identifier="forecast" id="bvQ-aO-aUl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SrD-72-yGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="2234"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LocationIcon" width="18" height="18"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bvQ-aO-aUl"/>
+    </inferredMetricsTieBreakers>
 </document>

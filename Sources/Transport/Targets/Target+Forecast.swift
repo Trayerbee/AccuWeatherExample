@@ -17,3 +17,13 @@ class OneDayForecast: Target {
         parameters = params
     }
 }
+
+class FiveDayForecast: Target {
+    var path = "/forecasts/v1/daily/5day"
+    var parameters: [String : String]
+    
+    init(endPoint: String, params: [String: String]) {
+        path = "\(path)/\(endPoint)"
+        parameters = params
+    }
+}

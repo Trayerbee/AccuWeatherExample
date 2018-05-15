@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CitySearchViewControllerOld: UIViewController {
+class CitySearchViewController: UIViewController {
 
     @IBOutlet weak var searchText: UITextField!
     
@@ -46,14 +46,16 @@ class CitySearchViewControllerOld: UIViewController {
         
         tableView.rx.modelSelected(City.self).subscribe(
             onNext: { (city) in
-            self.performSegue(withIdentifier: "city", sender: city)
+            self.performSegue(withIdentifier: "forecast", sender: city)
         })
             .disposed(by: bag)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let forecastVC = segue.destination as! CityForecastViewController
-        forecastVC.city = sender as? City
+        if segue.identifier == "forecast" {
+            let rangeVC = segue.destination as! RangeViewController
+            rangeVC.location = sender as! City
+        }
     }
     
     override func didReceiveMemoryWarning() {
