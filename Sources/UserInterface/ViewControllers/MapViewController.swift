@@ -18,8 +18,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     private var coordinates: CLLocationCoordinate2D?
     
+    private let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        coordinates = mapView.centerCoordinate
+        
         mapView.delegate? = self
                 }
 
@@ -32,7 +37,28 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         guard let coordinates = coordinates else {
             return
         }
-        
+        let core = try! Core.defaultNetworkCore()
+        _ = Observable.just(LocationRequests(endPoint: "cities/geoposition/search", params: ["q":"\(coordinates.latitude),\(coordinates.longitude)"]))
+            .flatMap {
+            (request) -> Observable<SingleCityResponse> in
+            return core.send(apiRequest: request)
+            }
+            .map{ $0.city
+            }
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: {
+                (city) in
+                self.performSegue(withIdentifier: "forecast", sender: city)
+            })
+            .disposed(by: bag)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "forecast" {
+            let rangeVC = segue.destination as! RangeViewController
+            rangeVC.location = sender as! City
+        }
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {

@@ -34,7 +34,7 @@ class CitySearchViewController: UIViewController {
             .throttle(1, scheduler: MainScheduler.asyncInstance)
             .map{ LocationRequests(endPoint: "cities/autocomplete", params: ["q":$0])}
             .flatMap {
-                (request) -> Observable<CityResponse> in
+                (request) -> Observable<MultipleCityResponse> in
                 return core.send(apiRequest: request)
             }
             .map{ $0.cities }

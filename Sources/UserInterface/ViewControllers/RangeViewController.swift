@@ -14,6 +14,7 @@ class RangeViewController: UIViewController {
 
     @IBOutlet weak var oneDay: UIButton!
     @IBOutlet weak var fiveDays: UIButton!
+    @IBOutlet weak var cityNameLabel: UILabel!
     
     public var location: KeyedLocation?
     
@@ -21,6 +22,8 @@ class RangeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cityNameLabel.text = "Weather for \(location?.localName ?? "unknown location")"
         
         oneDay.rx
             .tap
